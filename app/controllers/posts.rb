@@ -38,8 +38,5 @@ end
 
 delete '/posts/:id' do
   Post.find(params[:id]).destroy
-
   redirect '/posts'
 end
-
-
