@@ -1,5 +1,11 @@
 <form action="/posts" method="post">
   <input name="post[title]" type="text">
 
+  <select name="post[category_id]">
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.proper_title %></option>
+    <% end %>
+  </select>
+
   <button value="submit">Create New Post</button>
 </form>

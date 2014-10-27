@@ -1,0 +1,11 @@
+<form action='<%= "/posts/#{@post.id}" %>' method="post">
+  <input name="post[title]" type="text" value='<%= @post.title %>'>
+
+  <select name="post[category_id]">
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>" <%= 'selected' if @post.category == category %>><%= category.proper_title %></option>
+    <% end %>
+  </select>
+
+  <button value="submit">Update Post</button>
+</form>

@@ -1,3 +1,7 @@
 class Category < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :posts
+
+  def proper_title
+    title.capitalize
+  end
 end
