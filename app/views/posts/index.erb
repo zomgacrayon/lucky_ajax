@@ -1,3 +1,28 @@
-<% @posts.each do |p| %>
+<!-- <% @posts.each do |p| %>
   <a href='<%= "/posts/#{p.id}" %>'><%= p.proper_title %></a>
 <% end %>
+ -->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+<% @posts.each do |p| %>
+$(document).ready(function(){
+  $('#<%= "#{p.id}_button" %>').click(function(){
+    // $("#div1").load("<%= "/posts/#{p.id}" %>");
+
+
+    $.ajax({url:'<%= "/posts/#{p.id}" %>',success:function(result){
+      $("#div1").html(result);
+}});
+  });
+});
+<% end %>
+</script>
+
+<% @posts.each do |p| %>
+  <a href="#" id='<%= "#{p.id}_button" %>'><%= p.proper_title %></a>
+<% end %>
+<div id="div1">
+  content goes here
+</div>
